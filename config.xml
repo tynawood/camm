@@ -4,7 +4,7 @@
     <description>A sample Cordova application for cordova-plugin-camera-preview.</description>
     <author email="dev@cordova.apache.org" href="http://cordova.io">Sample App</author>
     
-<!--     <content src="index.html" /> --><preference name="phonegap-version" value="6.1.0" /> 
+<!--     <content src="index.html" /> --><preference name="phonegap-version" value="6.3.0" /> 
     <gap:plugin name="com.mbppower.camerapreview" version="0.0.8" source="plugins.cordova.io" />
 
     <access origin="*" />
