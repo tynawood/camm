@@ -137,15 +137,16 @@ function onFail(message) {
 function mySavingFunction(canvas) {
     canvas2ImagePlugin.saveImageDataToLibrary(
         function(msg){
-            console.log(msg);
+            alert('Success!', 'The image was saved to the photos gallery on your device.');
         }, 
         function(err){
-            console.log(err);
+           alert('Aww, Schucks!', 'There was a problem saving the image to your device.');
+    },
         }, 
        document.getElementById('canvas'),
         '.jpg', // save as jpg
         80, // image quality
-        'cunvaspluginfolder' //folder name
+        'onthego' //folder name
     );
 }
 
@@ -167,7 +168,7 @@ height:555px; display:block;background: url(img/bg.png);
 
 <p style="margin-top:-80%;position:relative;text-align:center;z-index:-5">Tap on the beta malt<br> on the go icon to capture your moment</p>
 
-<canvas id="canvas" width="100%" height="480">
+<canvas id="canvas" style="width:96%;height:100%;" >
 </canvas>
 <img style="display:none;" id="largeImage" src="" />
 </div>
@@ -183,7 +184,7 @@ var context = canvas.getContext('2d');
 
 // Trigger photo take
 document.getElementById("snap").addEventListener("click", function() {
-    context.drawImage(smallImage, 0, 0, 500, 480);
+    context.drawImage(smallImage, 0, 0, 100%, 600);
 });
 
 
