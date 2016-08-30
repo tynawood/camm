@@ -17,7 +17,7 @@
     </author>
 
     <preference name="phonegap-version" value="cli-6.1.0" />
-
+<icon src="icon.png" />
 <gap:plugin name="org.apache.cordova.camera" />
 <plugin name="org.devgeeks.canvas2imageplugin" spec="0.6.0" source="pgb" />
 <plugin name="cordova-plugin-whitelist" source="npm" spec="1.1.0" />
