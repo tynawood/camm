@@ -4,9 +4,12 @@
 
  <style type="text/css"> 
 .backy{
-    background: url(img/bg.png);
+    background: url(img/bg.png) no-repeat;
+    max-width: 100%; 
     width:100%;
-    height:100%;
+    height:800px;
+    position: relative;
+
 }
 
  </style>
@@ -102,12 +105,14 @@ function onFail(message) {
 
 </script>
  </head>
-  <body>
+  <body >
+  <div class="backy">
 <!-- <button onclick="capturePhoto();">Capture Photo</button> <br> -->
 <button onclick="capturePhotoEdit();">Capture your on the go moment</button> <br>
 <!-- <button onclick="getPhoto(pictureSource.PHOTOLIBRARY);">From Photo Library</button><br> -->
 <!-- <button onclick="getPhoto(pictureSource.SAVEDPHOTOALBUM);">From Photo Album</button><br> -->
-<img class="backy" style="display:none;width:100%;height:80%;" id="smallImage" src="" />
+<img  style="display:none;width:100%;height:80%;z-index:-10" id="smallImage" src="" />
 <img style="display:none;" id="largeImage" src="" />
+</div>
  </body>
 </html>
