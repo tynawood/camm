@@ -50,6 +50,20 @@ document.addEventListener("deviceready",onDeviceReady,false);
 
 // Cordova is ready to be used!
 //
+
+
+function onDeviceReady()
+{
+    window.canvas2ImagePlugin.saveImageDataToLibrary(
+        function(msg){
+            console.log(msg);
+        },
+        function(err){
+            console.log(err);
+        },
+        document.getElementById('canvas')
+    );
+}
 function onDeviceReady() {
     pictureSource=navigator.camera.PictureSourceType;
     destinationType=navigator.camera.DestinationType;
@@ -156,7 +170,7 @@ height:555px; display:block;background: url(img/bg.png);
     
     var canvas = document.getElementById('canvas');
 var context = canvas.getContext('2d');
-var smallImage = document.getElementById('smallImage');
+/*var smallImage = document.getElementById('smallImage');*/
 
 // Trigger photo take
 /*document.getElementById("snap").addEventListener("click", function() {*/
