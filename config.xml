@@ -3,7 +3,7 @@
 <!-- config.xml reference: https://build.phonegap.com/docs/config-xml -->
 <widget xmlns     = "http://www.w3.org/ns/widgets"
         xmlns:gap = "http://phonegap.com/ns/1.0"
-        id        = "com.phonegap.wanlive"
+        id        = "com.phonegap.hello-world"
         version   = "1.0.0">
 
     <name>Camera App</name>
@@ -16,7 +16,11 @@
         PhoneGap Team
     </author>
 
-    <preference name="phonegap-version" value="3.0.0" /> 
+    <preference name="phonegap-version" value="cli-6.1.0" />
 
-    <gap:plugin name="org.apache.cordova.core.camera" />
+<gap:plugin name="org.apache.cordova.camera" />
+<plugin name="cordova-plugin-whitelist" source="npm" spec="1.1.0" />
+<allow-navigation href="*" />
+<allow-intent href="*" />
+<access origin="*" /> 
 </widget>
