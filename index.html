@@ -43,6 +43,7 @@
 
 var pictureSource;   // picture source
 var destinationType; // sets the format of returned value 
+var canvas2ImagePlugin;
 
 // Wait for Cordova to connect with the device
 //
@@ -52,21 +53,13 @@ document.addEventListener("deviceready",onDeviceReady,false);
 //
 
 
-function onDeviceReady()
-{
-    window.canvas2ImagePlugin.saveImageDataToLibrary(
-        function(msg){
-            console.log(msg);
-        },
-        function(err){
-            console.log(err);
-        },
-        document.getElementById('canvas')
-    );
-}
+
+
 function onDeviceReady() {
     pictureSource=navigator.camera.PictureSourceType;
     destinationType=navigator.camera.DestinationType;
+   canvas2ImagePlugin = window.plugins.canvas2ImagePlugin;
+
 }
 
 // Called when a photo is successfully retrieved
@@ -140,7 +133,21 @@ function onFail(message) {
   alert('Failed because: ' + message);
 }
 
-
+// where myCanvasId == 'myCanvas' (the id of the canvas above)
+function mySavingFunction(canvas) {
+    canvas2ImagePlugin.saveImageDataToLibrary(
+        function(msg){
+            console.log(msg);
+        }, 
+        function(err){
+            console.log(err);
+        }, 
+       document.getElementById('canvas'),
+        '.jpg', // save as jpg
+        80, // image quality
+        'cunvaspluginfolder' //folder name
+    );
+}
 
 </script>
  </head>
@@ -165,7 +172,7 @@ height:555px; display:block;background: url(img/bg.png);
 <img style="display:none;" id="largeImage" src="" />
 </div>
 <button id="snap">Snap Photo</button>
-<a id="" onclick="window.canvas2ImagePlugin.saveImageDataToLibrary()">Download as image</a>
+<a id="download" onclick="mySavingFunction()">Download as image</a>
 
 
 <script type="text/javascript">
@@ -176,7 +183,7 @@ var context = canvas.getContext('2d');
 
 // Trigger photo take
 document.getElementById("snap").addEventListener("click", function() {
-    context.drawImage(smallImage, 0, 0, 300, 480);
+    context.drawImage(smallImage, 0, 0, 500, 480);
 });
 
 
