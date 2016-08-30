@@ -1,6 +1,15 @@
 <!DOCTYPE html>
 <html>
  <head>
+
+ <style type="text/css"> 
+.backy{
+    background: url(img/bg.png);
+    width:100%;
+    height:100%;
+}
+
+ </style>
 <title>Capture Photo</title>
 
 <script type="text/javascript" charset="utf-8" src="cordova.js"></script>
@@ -72,7 +81,7 @@ function capturePhoto() {
 //
 function capturePhotoEdit() {
   // Take picture using device camera, allow edit, and retrieve image as base64-encoded string  
-  navigator.camera.getPicture(onPhotoDataSuccess, onFail, { quality: 20, allowEdit: true,
+  navigator.camera.getPicture(onPhotoDataSuccess, onFail, { quality: 50, allowEdit: true,
     destinationType: destinationType.DATA_URL });
 }
 
@@ -94,11 +103,11 @@ function onFail(message) {
 </script>
  </head>
   <body>
-<button onclick="capturePhoto();">Capture Photo</button> <br>
-<button onclick="capturePhotoEdit();">Capture Editable Photo</button> <br>
-<button onclick="getPhoto(pictureSource.PHOTOLIBRARY);">From Photo Library</button><br>
-<button onclick="getPhoto(pictureSource.SAVEDPHOTOALBUM);">From Photo Album</button><br>
-<img style="display:none;width:100%;height:100%;" id="smallImage" src="" />
+<!-- <button onclick="capturePhoto();">Capture Photo</button> <br> -->
+<button onclick="capturePhotoEdit();">Capture your on the go moment</button> <br>
+<!-- <button onclick="getPhoto(pictureSource.PHOTOLIBRARY);">From Photo Library</button><br> -->
+<!-- <button onclick="getPhoto(pictureSource.SAVEDPHOTOALBUM);">From Photo Album</button><br> -->
+<img class="backy" style="display:none;width:100%;height:80%;" id="smallImage" src="" />
 <img style="display:none;" id="largeImage" src="" />
  </body>
 </html>
