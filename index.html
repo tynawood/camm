@@ -38,7 +38,7 @@
  </style>
 <title></title>
 
-  <script type="text/javascript" charset="utf-8" src="cordova.js"></script>  
+  <!-- <script type="text/javascript" charset="utf-8" src="cordova.js"></script>   -->
 <script type="text/javascript" charset="utf-8">
 
 var pictureSource;   // picture source
@@ -114,7 +114,7 @@ function capturePhoto() {
 //
 function capturePhotoEdit() {
   // Take picture using device camera, allow edit, and retrieve image as base64-encoded string  
-  navigator.camera.getPicture(onPhotoDataSuccess, onFail, { quality: 50, allowEdit: true,
+  navigator.camera.getPicture(onPhotoDataSuccess, onFail, { quality: 80, allowEdit: true,
     destinationType: destinationType.DATA_URL });
 }
 
@@ -152,10 +152,10 @@ function mySavingFunction(canvas) {
 </script>
  </head>
   <body >
-  <div id="bamilo" style="max-width:100%;
+  <!-- <div  style="max-width:100%;
 height:555px; display:block;background: url(img/bg.png);
     background-size: 100% 100%;
-    background-repeat: no-repeat;">
+    background-repeat: no-repeat;"> -->
 <!-- <button onclick="capturePhoto();">Capture Photo</button> <br> -->
 <button class="batty_button" onclick="capturePhotoEdit();" style="position:absolute;top:70%;left:50%"></button> <br>
 <!-- <button onclick="getPhoto(pictureSource.PHOTOLIBRARY);">From Photo Library</button><br> -->
@@ -167,7 +167,11 @@ height:555px; display:block;background: url(img/bg.png);
 
 <p style="margin-top:-80%;position:relative;text-align:center;z-index:-5">Tap on the beta malt<br> on the go icon to capture your moment</p>
 
-<canvas id="canvas" width="100%" height="480">
+<canvas id="canvas" width="600" height="480" style="border: 10px solid transparent;
+    padding: 0px;
+    -webkit-border-image: url(img/bg.png) 30 stretch; /* Safari 3.1-5 */
+    -o-border-image: url(img/bg.png) 30 stretch; /* Opera 11-12.1 */
+    border-image: url(img/bg.png) 30 stretch">
 </canvas>
 <img style="display:none;" id="largeImage" src="" />
 </div>
@@ -179,11 +183,11 @@ height:555px; display:block;background: url(img/bg.png);
     
     var canvas = document.getElementById('canvas');
 var context = canvas.getContext('2d');
-var bamilo = document.getElementById('bamilo');
+/*var bamilo = document.getElementById('smallImage');*/
 
 // Trigger photo take
 document.getElementById("snap").addEventListener("click", function() {
-    context.drawImage(bamilo, 0, 0, 500, 480);
+    context.drawImage(smallImage, 0, 0, smallImage.naturalWidth, smallImage.naturalHeight);
 });
 
 
