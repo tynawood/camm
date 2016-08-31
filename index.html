@@ -137,16 +137,15 @@ function onFail(message) {
 function mySavingFunction(canvas) {
     canvas2ImagePlugin.saveImageDataToLibrary(
         function(msg){
-            alert('Success!', 'The image was saved to the photos gallery on your device.');
+            console.log(msg);
         }, 
         function(err){
-           alert('Aww, Schucks!', 'There was a problem saving the image to your device.');
-    },
+            console.log(err);
         }, 
        document.getElementById('canvas'),
         '.jpg', // save as jpg
         80, // image quality
-        'onthego' //folder name
+        'cunvaspluginfolder' //folder name
     );
 }
 
@@ -184,7 +183,7 @@ var context = canvas.getContext('2d');
 
 // Trigger photo take
 document.getElementById("snap").addEventListener("click", function() {
-    context.drawImage(smallImage, 0, 0, 680, 480);
+    context.drawImage(smallImage, 0, 0, 500, 480);
 });
 
 
