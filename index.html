@@ -152,7 +152,7 @@ function mySavingFunction(canvas) {
 </script>
  </head>
   <body >
-  <div id="mainframe" style="max-width:100%;
+  <div id="smallImage" style="max-width:100%;
 height:555px; display:block;background: url(img/bg.png);
     background-size: 100% 100%;
     background-repeat: no-repeat;"></div>
@@ -167,7 +167,7 @@ height:555px; display:block;background: url(img/bg.png);
 
 <p style="margin-top:-80%;position:relative;text-align:center;z-index:-5">Tap on the beta malt<br> on the go icon to capture your moment</p>
 
-<canvas id="canvas" width="600" height="480">
+<canvas id="canvas" width="100%" height="480">
 </canvas>
 <img style="display:none;" id="largeImage" src="" />
 </div>
@@ -179,11 +179,11 @@ height:555px; display:block;background: url(img/bg.png);
     
     var canvas = document.getElementById('canvas');
 var context = canvas.getContext('2d');
-var mainframe = document.getElementById('mainframe');
+/*var smallImage = document.getElementById('smallImage');*/
 
 // Trigger photo take
 document.getElementById("snap").addEventListener("click", function() {
-    context.drawImage(mainframe, 0, 0, 500, 480);
+    context.drawImage(smallImage, 0, 0, 500, 480);
 });
 
 
