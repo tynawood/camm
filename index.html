@@ -66,7 +66,7 @@
  </style>
 <title></title>
 
-  <script type="text/javascript" charset="utf-8" src="cordova.js"></script>  
+   <script type="text/javascript" charset="utf-8" src="cordova.js"></script>  
 <script type="text/javascript" charset="utf-8">
 
 var pictureSource;   // picture source
@@ -165,10 +165,10 @@ function onFail(message) {
 function mySavingFunction(canvas) {
     canvas2ImagePlugin.saveImageDataToLibrary(
         function(msg){
-            console.log('Success!', 'The image was saved to the photos gallery on your device.');
+            alert('Success!', 'The image was saved to the photos gallery on your device.');
         }, 
         function(err){
-            console.log('Aww, Schucks!', 'There was a problem saving the image to your device.');
+            alert('Aww, Schucks!', 'There was a problem saving the image to your device.');
         }, 
        document.getElementById('canvas'),
         '.jpg', // save as jpg
@@ -186,16 +186,16 @@ height:555px; display:block;background: url(img/bg.png);
     background-repeat: no-repeat;"> -->
 <!-- <button onclick="capturePhoto();">Capture Photo</button> <br> -->
 
-<img id="mainframe" src="img/bg.png" style="width:100%;height:auto;">
+<img id="mainframe" src="img/bg.png" style="width:100%;height:auto;display:none">
 <button class="batty_button" onclick="capturePhotoEdit();" style="position:absolute;top:70%;left:50%"></button> <br>
 <!-- <button onclick="getPhoto(pictureSource.PHOTOLIBRARY);">From Photo Library</button><br> -->
 <!-- <button onclick="getPhoto(pictureSource.SAVEDPHOTOALBUM);">From Photo Album</button><br> -->
 <!-- <img  style="display:none;width:100%;height:80%;" id="smallImage" src="" /> -->
-<img  style="width:96%;height:100%;position:absolute;top:8px;z-index:-1; " id="smallImage" src="" />
+<img  style="display:none;width:96%;height:100%;position:absolute;top:8px;z-index:-1; " id="smallImage" src="" />
 
 
 
-<p style="margin-top:-80%;position:relative;text-align:center;z-index:-5">Tap on the beta malt<br> on the go icon to capture your moment</p>
+<p style="margin-top:30%;position:relative;text-align:center;z-index:-5">Tap on the beta malt<br> on the go icon to capture your moment</p>
 
 <canvas id="canvas" width="600" height="780" style="display:none">
 </canvas>
