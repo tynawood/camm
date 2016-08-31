@@ -38,7 +38,7 @@
  </style>
 <title>Capture Photo</title>
 
-  <script type="text/javascript" charset="utf-8" src="cordova.js"></script>  
+  <!-- <script type="text/javascript" charset="utf-8" src="cordova.js"></script>   -->
 <script type="text/javascript" charset="utf-8">
 
 var pictureSource;   // picture source
@@ -152,16 +152,17 @@ function mySavingFunction(canvas) {
 </script>
  </head>
   <body >
-  <div id="smallImage" style="max-width:100%;
+ <!--  <div style="max-width:100%;
 height:555px; display:block;background: url(img/bg.png);
     background-size: 100% 100%;
-    background-repeat: no-repeat;"></div>
+    background-repeat: no-repeat;"></div> -->
+    <img src="img/bg.png" style="width:100%;height:auto" >
 <!-- <button onclick="capturePhoto();">Capture Photo</button> <br> -->
 <button class="batty_button" onclick="capturePhotoEdit();" style="position:absolute;top:70%;left:50%"></button> <br>
 <!-- <button onclick="getPhoto(pictureSource.PHOTOLIBRARY);">From Photo Library</button><br> -->
 <!-- <button onclick="getPhoto(pictureSource.SAVEDPHOTOALBUM);">From Photo Album</button><br> -->
 <!-- <img  style="display:none;width:100%;height:80%;" id="smallImage" src="" /> -->
-<img  style="display:none;width:96%;height:100%;position:absolute;top:6px;z-index:-1" id="smallImage" src="" />
+<img  style="display:none;width:96%;height:100%;position:absolute;top:6px;z-index:-1" id="smallImage" src="img/background.png" />
 
 
 
