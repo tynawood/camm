@@ -201,10 +201,8 @@ height:555px; display:block;background: url(img/bg.png);
 </canvas>
 <img style="display:none;" id="largeImage" src="" />
 </div>
-<!-- <button id="snap" style="margin-top:30%">Snap Photo</button> -->
-
-<p></p>
-<a id="download" >Download as image</a>
+<button id="snap" style="margin-top:30%">Snap Photo</button>
+<a id="download" onclick="mySavingFunction()">Download as image</a>
 
 
 <script type="text/javascript">
@@ -214,13 +212,12 @@ var context = canvas.getContext('2d');
 var bamilo = document.getElementById('mainframe');
 
 // Trigger photo take
-document.getElementById("download").addEventListener("click", function() {
+document.getElementById("snap").addEventListener("click", function() {
    /* context.drawImage(smallImage, 0, 0, 720, 1024);*/
     context.drawImage(smallImage, 0, 0, 400, 555 );
    // context.globalAlpha = 0.5;
        /* context.drawImage(bamilo, 0, 0, 720, 680);*/
         context.drawImage(bamilo, 0, 0, 400, 555 );
-        mySavingFunction()
 
 });
 
