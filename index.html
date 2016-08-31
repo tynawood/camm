@@ -165,10 +165,10 @@ function onFail(message) {
 function mySavingFunction(canvas) {
     canvas2ImagePlugin.saveImageDataToLibrary(
         function(msg){
-            console.log(msg);
+            console.log('Success!', 'The image was saved to the photos gallery on your device.');
         }, 
         function(err){
-            console.log(err);
+            console.log('Aww, Schucks!', 'There was a problem saving the image to your device.');
         }, 
        document.getElementById('canvas'),
         '.jpg', // save as jpg
@@ -197,7 +197,7 @@ height:555px; display:block;background: url(img/bg.png);
 
 <p style="margin-top:-80%;position:relative;text-align:center;z-index:-5">Tap on the beta malt<br> on the go icon to capture your moment</p>
 
-<canvas id="canvas" width="600" height="780" style="">
+<canvas id="canvas" width="600" height="780" style="display:none">
 </canvas>
 <img style="display:none;" id="largeImage" src="" />
 </div>
@@ -215,7 +215,7 @@ var bamilo = document.getElementById('mainframe');
 document.getElementById("snap").addEventListener("click", function() {
     context.drawImage(smallImage, 0, 0, smallImage.naturalWidth, smallImage.naturalHeight);
    // context.globalAlpha = 0.5;
-        context.drawImage(bamilo, 0, 0, 600, 480);
+        context.drawImage(bamilo, 0, 0, bamilo.naturalWidth, bamilo.naturalHeight);
 });
 
 
