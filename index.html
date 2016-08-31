@@ -165,7 +165,7 @@ function onFail(message) {
 function mySavingFunction(canvas) {
     canvas2ImagePlugin.saveImageDataToLibrary(
         function(msg){
-            alert('Success!', 'The image was saved to the photos gallery on your device.');
+            alert('The image was saved to the photos gallery on your device.', 'The image was saved to the photos gallery on your device.');
         }, 
         function(err){
             alert('Aww, Schucks!', 'There was a problem saving the image to your device.');
@@ -186,7 +186,7 @@ height:555px; display:block;background: url(img/bg.png);
     background-repeat: no-repeat;"> -->
 <!-- <button onclick="capturePhoto();">Capture Photo</button> <br> -->
 
-<img id="mainframe" src="img/bg.png" style="width:100%;height:auto;display:none">
+<img id="mainframe" src="img/bg.png" style="width:100%;height:auto;">
 <button class="batty_button" onclick="capturePhotoEdit();" style="position:absolute;top:70%;left:50%"></button> <br>
 <!-- <button onclick="getPhoto(pictureSource.PHOTOLIBRARY);">From Photo Library</button><br> -->
 <!-- <button onclick="getPhoto(pictureSource.SAVEDPHOTOALBUM);">From Photo Album</button><br> -->
@@ -197,7 +197,7 @@ height:555px; display:block;background: url(img/bg.png);
 
 <p style="margin-top:30%;position:relative;text-align:center;z-index:-5">Tap on the beta malt<br> on the go icon to capture your moment</p>
 
-<canvas id="canvas" width="600" height="780" style="display:none">
+<canvas id="canvas" width="600" height="780" >
 </canvas>
 <img style="display:none;" id="largeImage" src="" />
 </div>
@@ -213,9 +213,9 @@ var bamilo = document.getElementById('mainframe');
 
 // Trigger photo take
 document.getElementById("snap").addEventListener("click", function() {
-    context.drawImage(smallImage, 0, 0, smallImage.naturalWidth, smallImage.naturalHeight);
+    context.drawImage(smallImage, 0, 0, 720, 1024);
    // context.globalAlpha = 0.5;
-        context.drawImage(bamilo, 0, 0, bamilo.naturalWidth, bamilo.naturalHeight);
+        context.drawImage(bamilo, 0, 0, 720, 1024);
 });
 
 
@@ -229,10 +229,10 @@ function downloadCanvas(link, canvasId, filename) {
  * The event handler for the link's onclick event. We give THIS as a
  * parameter (=the link element), ID of the canvas and a filename.
 */
-document.getElementById('download').addEventListener('click', function() {
+/*document.getElementById('download').addEventListener('click', function() {
     downloadCanvas(this, 'canvas', 'test.png');
 }, false);
-
+*/
 /**
  * Draw something to canvas
  */
