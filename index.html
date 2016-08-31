@@ -197,7 +197,7 @@ height:555px; display:block;background: url(img/bg.png);
 
 <p style="margin-top:30%;position:relative;text-align:center;z-index:-5">Tap on the beta malt<br> on the go icon to capture your moment</p>
 
-<canvas id="canvas" width="100" height="100" style="width:96%;height:100%;">
+<canvas id="canvas" width="100" height="555" >
 </canvas>
 <img style="display:none;" id="largeImage" src="" />
 </div>
@@ -214,10 +214,10 @@ var bamilo = document.getElementById('mainframe');
 // Trigger photo take
 document.getElementById("snap").addEventListener("click", function() {
    /* context.drawImage(smallImage, 0, 0, 720, 1024);*/
-    context.drawImage(smallImage, 0, 0, 100, 100 * smallImage.height / smallImage.width);
+    context.drawImage(smallImage, 0, 0, 100, 555 );
    // context.globalAlpha = 0.5;
        /* context.drawImage(bamilo, 0, 0, 720, 680);*/
-        context.drawImage(bamilo, 0, 0, 100, 100 * bamilo.height / bamilo.width);
+        context.drawImage(bamilo, 0, 0, 100, 555 );
 
 });
 
