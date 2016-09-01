@@ -143,7 +143,8 @@ function capturePhoto() {
 function capturePhotoEdit() {
   // Take picture using device camera, allow edit, and retrieve image as base64-encoded string  
   navigator.camera.getPicture(onPhotoDataSuccess, onFail, { quality: 50, allowEdit: true,
-    destinationType: destinationType.DATA_URL });
+   destinationType: destinationType.FILE_URI,
+    sourceType: source });
 }
 
 // A button will call this function
