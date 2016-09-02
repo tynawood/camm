@@ -24,6 +24,7 @@
 <icon src="icon.png" />
 <gap:plugin name="org.apache.cordova.camera" />
 <plugin name="org.devgeeks.canvas2imageplugin" spec="0.6.0" source="pgb" />
+<gap:plugin name="cordova-plugin-x-socialsharing" source="npm" />
 <!-- <gap:plugin name="org.apache.cordova.camera" /> -->
 <gap:plugin name="org.apache.cordova.media-capture" />
 <gap:plugin name="org.apache.cordova.console" />

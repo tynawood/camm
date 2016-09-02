@@ -6,7 +6,7 @@
   width:100%;
   height:60px;
   background:#fff;
-  box-shadow:0 0 10px rgba(0,0,0,0.6);
+  box-shadow:0 0 10px rgba(0,0,0,0.8);
   position:fixed;
   top:0;
   z-index:100;
@@ -17,7 +17,7 @@
   width:100%;
   height:50px;
   background:#fff;
-  box-shadow:0 0 10px rgba(0,0,0,0.6);
+  box-shadow:0 0 10px rgba(0,0,0,0.8);
   position:fixed;
   bottom:0;
   z-index:100;
@@ -213,6 +213,29 @@ function mySavingFunction(canvas) {
     );
 }
 
+function sharetoapps(){
+
+  // this is the complete list of currently supported params you can pass to the plugin (all optional)
+var options = {
+  message: 'share this', // not supported on some apps (Facebook, Instagram)
+  subject: 'the subject', // fi. for email
+  files: ['', ''], // an array of filenames either locally or remotely
+  url: 'https://xbard.com',
+  chooserTitle: 'Pick an app' // Android only, you can override the default share sheet title
+}
+
+var onSuccess = function(result) {
+  console.log("Share completed? " + result.completed); // On Android apps mostly return false even while it's true
+  console.log("Shared to app: " + result.app); // On Android result.app is currently empty. On iOS it's empty when sharing is cancelled (result.completed=false)
+}
+
+var onError = function(msg) {
+  console.log("Sharing failed with message: " + msg);
+}
+
+window.plugins.socialsharing.shareWithOptions(options, onSuccess, onError);
+}
+
 
 </script>
  </head>
@@ -220,7 +243,7 @@ function mySavingFunction(canvas) {
   <div class="header_bar">
     <img src="img/log.png" style="float:left">
     <a id="download" class="save_button" ></a>
-    <a id="" class="share_button" ></a>
+    <a id="sharer" class="share_button" ></a>
   </div>
 <!-- <button onclick="capturePhoto();">Capture Photo</button> <br> -->
 
@@ -266,6 +289,18 @@ document.getElementById("download").addEventListener("click", function() {
        /* context.drawImage(bamilo, 0, 0, 720, 680);*/
         context.drawImage(bamilo, 0, 0, 380, 555 );
         mySavingFunction()
+
+});
+
+
+
+document.getElementById("sharer").addEventListener("click", function() {
+   /* context.drawImage(smallImage, 0, 0, 720, 1024);*/
+    context.drawImage(smallImage, 0, 0, 360, 555 );
+   // context.globalAlpha = 0.5;
+       /* context.drawImage(bamilo, 0, 0, 720, 680);*/
+        context.drawImage(bamilo, 0, 0, 380, 555 );
+      sharetoapps();
 
 });
 
