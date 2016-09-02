@@ -16,7 +16,7 @@
   Inappshub
     </author>
 
-    <preference name="phonegap-version" value="cli-6.2.0" />
+    <preference name="phonegap-version" value="cli-6.1.0" />
         <content src="index.html" />
 <icon src="icon.png" />
 <gap:plugin name="org.apache.cordova.camera" />
