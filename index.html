@@ -218,9 +218,9 @@ function sharetoapps(){
   // this is the complete list of currently supported params you can pass to the plugin (all optional)
 var options = {
   message: 'share this', // not supported on some apps (Facebook, Instagram)
-  subject: 'the subject', // fi. for email
-  files: ['', ''], // an array of filenames either locally or remotely
-  url: 'https://xbard.com',
+  subject: 'Onthego moments', // fi. for email
+  files: ['canvas'], // an array of filenames either locally or remotely
+  url: '',
   chooserTitle: 'Pick an app' // Android only, you can override the default share sheet title
 }
 
@@ -255,7 +255,7 @@ window.plugins.socialsharing.shareWithOptions(options, onSuccess, onError);
 
 <canvas id="canvas" width="360" height="555" >
 </canvas>
-<p style="margin-top:50%;position:absolute;text-align:center;z-index:-5">Your Picture will<br> be inserted here</p>
+<p style="margin-top:50%;position:absolute;text-align:center;z-index:-5;left:40%">Your Picture will<br> be inserted here</p>
 <!-- <img style="display:none;width:60px;height:60px;" id="smallImage" src="" /> -->
 <img style="display:none;" id="largeImage" src="" />
 
