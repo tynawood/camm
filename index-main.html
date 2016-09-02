@@ -1,0 +1,249 @@
+<!DOCTYPE html>
+<html>
+ <head>
+
+ <style type="text/css">
+
+ #smallImage{
+
+
+   
+
+/*
+    background-origin: border-box;
+   border: 10px solid transparent;
+    padding: 0px;
+    -webkit-border-image: url(img/bg.png) 30 stretch ; /* Safari 3.1-5
+ -o-border-image: url(img/bg.png) 30 stretch ; 
+  border-image: url(img/bg.png) 30 stretch ;
+*/
+   /*padding: 10px 0 30px 0;    
+    background-image: url("img/bg.png"), url('');
+    background-position: 100% 100%;
+    background-repeat: no-repeat;
+
+    display: block;*/
+ }
+
+
+
+ 
+
+     #download {
+        float:left;
+        cursor:pointer;
+        color:#000;
+        padding:3px;
+     position: relative;top:10%;
+    }
+
+    
+
+.backy{
+   background: url(img/bg.png) ;
+    width: 100%;
+    height: 600px;
+   
+    background-size: 100% 100%;
+   /* border: 1px solid red;
+*/
+/*z-index: 1000;*/
+
+}
+.batty_button{
+    background:url(img/logo.png) no-repeat;
+    width:140px;
+    height:145px;
+    border:none;
+    cursor: pointer;
+    outline: none;
+
+
+}
+
+
+
+ </style>
+<title></title>
+
+   <script type="text/javascript" charset="utf-8" src="cordova.js"></script>  
+   <script type="text/javascript" charset="utf-8">
+
+var pictureSource;   // picture source
+var destinationType; // sets the format of returned value 
+var canvas2ImagePlugin;
+
+// Wait for Cordova to connect with the device
+//
+document.addEventListener("deviceready",onDeviceReady,false);
+
+// Cordova is ready to be used!
+//
+
+
+
+
+function onDeviceReady() {
+    pictureSource=navigator.camera.PictureSourceType;
+    destinationType=navigator.camera.DestinationType;
+   canvas2ImagePlugin = window.plugins.canvas2ImagePlugin;
+
+}
+
+// Called when a photo is successfully retrieved
+//
+function onPhotoDataSuccess(imageData) {
+  // Uncomment to view the base64 encoded image data
+  // console.log(imageData);
+
+  // Get image handle
+  //
+  var smallImage = document.getElementById('smallImage');
+
+  // Unhide image elements
+  //
+  smallImage.style.display = 'block';
+
+  // Show the captured photo
+  // The inline CSS rules are used to resize the image
+  //
+  smallImage.src = "data:image/jpeg;base64," + imageData;
+}
+
+// Called when a photo is successfully retrieved
+//
+function onPhotoURISuccess(imageURI) {
+  // Uncomment to view the image file URI 
+  // console.log(imageURI);
+
+  // Get image handle
+  //
+  var largeImage = document.getElementById('largeImage');
+
+  // Unhide image elements
+  //
+  largeImage.style.display = 'block';
+
+  // Show the captured photo
+  // The inline CSS rules are used to resize the image
+  //
+  largeImage.src = imageURI;
+}
+
+// A button will call this function
+//
+function capturePhoto() {
+  // Take picture using device camera and retrieve image as base64-encoded string
+  navigator.camera.getPicture(onPhotoDataSuccess, onFail, { quality: 50,
+    destinationType: destinationType.DATA_URL });
+}
+
+// A button will call this function
+//
+function capturePhotoEdit() {
+  // Take picture using device camera, allow edit, and retrieve image as base64-encoded string  
+  navigator.camera.getPicture(onPhotoDataSuccess, onFail, { quality: 50, allowEdit:true,
+    destinationType: destinationType.DATA_URL });
+}
+
+// A button will call this function
+//
+function getPhoto(source) {
+  // Retrieve image file location from specified source
+  navigator.camera.getPicture(onPhotoURISuccess, onFail, { quality: 50, 
+    destinationType: destinationType.FILE_URI,
+    sourceType: source });
+}
+
+// Called if something bad happens.
+// 
+function onFail(message) {
+  alert('Failed because: ' + message);
+}
+
+// where myCanvasId == 'myCanvas' (the id of the canvas above)
+function mySavingFunction(canvas) {
+    canvas2ImagePlugin.saveImageDataToLibrary(
+        function(msg){
+            alert('The image was saved to the photos gallery on your device.', 'The image was saved to the photos gallery on your device.');
+        }, 
+        function(err){
+            alert('Aww, Schucks!', 'There was a problem saving the image to your device.');
+        }, 
+       document.getElementById('canvas'),
+        '.jpg', // save as jpg
+        80, // image quality
+        'onthego' //folder name
+    );
+}
+
+</script>
+ </head>
+  <body >
+  <!-- <div  style="max-width:100%;
+height:555px; display:block;background: url(img/bg.png);
+    background-size: 100% 100%;
+    background-repeat: no-repeat;"> -->
+<button onclick="capturePhoto();">Capture Photo</button> <br> 
+
+<img id="mainframe" src="img/bg.png" style="width:100%;height:100%;position:absolute;display:block;">
+<!-- <button class="batty_button" onclick="capturePhotoEdit();" style="position:absolute;top:70%;left:50%"></button> --> <br>
+<!-- <button onclick="getPhoto(pictureSource.PHOTOLIBRARY);">From Photo Library</button><br> -->
+<!-- <button onclick="getPhoto(pictureSource.SAVEDPHOTOALBUM);">From Photo Album</button><br> -->
+<!-- <img  style="display:none;width:100%;height:80%;" id="smallImage" src="" /> -->
+<img  style="display:none;width:100%;height:100%;position:absolute;top:8px;z-index:-1; " id="smallImage" src="" />
+
+
+
+<p style="margin-top:30%;position:relative;text-align:center;z-index:-5">Tap on the beta malt<br> on the go icon to capture your moment</p>
+
+<canvas id="canvas" width="360" height="555" >
+</canvas>
+<img style="display:none;" id="largeImage" src="" />
+</div>
+<!-- <button id="snap" style="margin-top:30%">Snap Photo</button> -->
+
+<p></p>
+<a id="download" >Download as image</a>
+
+
+<script type="text/javascript">
+    
+    var canvas = document.getElementById('canvas');
+var context = canvas.getContext('2d');
+canvas.style.display="none";
+var bamilo = document.getElementById('mainframe');
+
+// Trigger photo take
+document.getElementById("download").addEventListener("click", function() {
+   /* context.drawImage(smallImage, 0, 0, 720, 1024);*/
+    context.drawImage(smallImage, 0, 0, 360, 555 );
+   // context.globalAlpha = 0.5;
+       /* context.drawImage(bamilo, 0, 0, 720, 680);*/
+        context.drawImage(bamilo, 0, 0, 380, 555 );
+        mySavingFunction()
+
+});
+
+
+
+function downloadCanvas(link, canvasId, filename) {
+    link.href = document.getElementById(canvasId).toDataURL();
+    link.download = filename;
+}
+
+/** 
+ * The event handler for the link's onclick event. We give THIS as a
+ * parameter (=the link element), ID of the canvas and a filename.
+*/
+/*document.getElementById('download').addEventListener('click', function() {
+    downloadCanvas(this, 'canvas', 'test.png');
+}, false);
+*/
+/**
+ * Draw something to canvas
+ */
+doCanvas();
+</script>
+ </body>
+</html>
