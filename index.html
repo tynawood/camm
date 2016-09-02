@@ -214,12 +214,12 @@ function mySavingFunction(canvas) {
 }
 
 function sharetoapps(){
-files.push(canvas)
+
   // this is the complete list of currently supported params you can pass to the plugin (all optional)
 var options = {
   message: 'share this', // not supported on some apps (Facebook, Instagram)
   subject: 'Onthego moments', // fi. for email
-  files: [], // an array of filenames either locally or remotely
+  files: [canvas], // an array of filenames either locally or remotely
   url: '',
   chooserTitle: 'Pick an app' // Android only, you can override the default share sheet title
 }
