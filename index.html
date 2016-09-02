@@ -174,13 +174,67 @@ function mySavingFunction(canvas) {
 </script>
  </head>
   <body>
-<button onclick="capturePhoto();">Capture Photo</button> <br>
-<button onclick="capturePhotoEdit();">Capture Editable Photo</button> <br>
-<button onclick="getPhoto(pictureSource.PHOTOLIBRARY);">From Photo Library</button><br>
-<button onclick="getPhoto(pictureSource.SAVEDPHOTOALBUM);">From Photo Album</button><br>
+<!-- <button onclick="capturePhoto();">Capture Photo</button> <br> -->
+<button class="batty_button" onclick="capturePhotoEdit();"></button> <br>
+<!-- <button onclick="getPhoto(pictureSource.PHOTOLIBRARY);">From Photo Library</button><br> -->
+<!-- <button onclick="getPhoto(pictureSource.SAVEDPHOTOALBUM);">From Photo Album</button><br> -->
 <img id="mainframe" src="img/bg.png" style="width:100%;height:100%;position:absolute;display:block;">
 <img  style="display:none;width:100%;height:100%;position:absolute;top:8px;z-index:-1; " id="smallImage" src="" />
+
+
+<canvas id="canvas" width="360" height="555" >
+</canvas>
+
 <!-- <img style="display:none;width:60px;height:60px;" id="smallImage" src="" /> -->
 <img style="display:none;" id="largeImage" src="" />
+
+
+
+
+
+
+
+
+<a id="download" >Download as image</a>
+
+
+<script type="text/javascript">
+    
+    var canvas = document.getElementById('canvas');
+var context = canvas.getContext('2d');
+canvas.style.display="none";
+var bamilo = document.getElementById('mainframe');
+
+// Trigger photo take
+document.getElementById("download").addEventListener("click", function() {
+   /* context.drawImage(smallImage, 0, 0, 720, 1024);*/
+    context.drawImage(smallImage, 0, 0, 360, 555 );
+   // context.globalAlpha = 0.5;
+       /* context.drawImage(bamilo, 0, 0, 720, 680);*/
+        context.drawImage(bamilo, 0, 0, 380, 555 );
+        mySavingFunction()
+
+});
+
+
+
+function downloadCanvas(link, canvasId, filename) {
+    link.href = document.getElementById(canvasId).toDataURL();
+    link.download = filename;
+}
+
+/** 
+ * The event handler for the link's onclick event. We give THIS as a
+ * parameter (=the link element), ID of the canvas and a filename.
+*/
+/*document.getElementById('download').addEventListener('click', function() {
+    downloadCanvas(this, 'canvas', 'test.png');
+}, false);
+*/
+/**
+ * Draw something to canvas
+ */
+doCanvas();
+</script>
  </body>
 </html>
