@@ -17,14 +17,14 @@
     </author>
 
 <!--     <preference name="phonegap-version" value="cli-6.1.0" /> --> 
-<preference name="phonegap-version" value="3.7.0" />
+<!-- <preference name="phonegap-version" value="3.7.0" /> -->
     <preference name="orientation" value="portrait" />
     <preference name="fullscreen" value="false" />
    <!--      <content src="index.html" /> -->
 <icon src="icon.png" />
 <gap:plugin name="org.apache.cordova.camera" />
 <plugin name="org.devgeeks.canvas2imageplugin" spec="0.6.0" source="pgb" />
-<gap:plugin name="org.apache.cordova.camera" />
+<!-- <gap:plugin name="org.apache.cordova.camera" /> -->
 <gap:plugin name="org.apache.cordova.media-capture" />
 <gap:plugin name="org.apache.cordova.console" />
 <gap:plugin name="org.apache.cordova.contacts" />
