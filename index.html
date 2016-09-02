@@ -6,7 +6,7 @@
   width:100%;
   height:60px;
   background:#fff;
-  box-shadow:0 0 10px rgba(0,0,0,0.6);
+  box-shadow:0 0 10px rgba(0,0,0,0.8);
   position:fixed;
   top:0;
   z-index:100;
@@ -17,7 +17,7 @@
   width:100%;
   height:50px;
   background:#fff;
-  box-shadow:0 0 10px rgba(0,0,0,0.6);
+  box-shadow:0 0 10px rgba(0,0,0,0.8);
   position:fixed;
   bottom:0;
   z-index:100;
@@ -26,8 +26,8 @@
 
  .save_button{
   background:url(img/download-arrow.png) no-repeat;
-  position:relative;
-  left:70%;
+  position:absolute;
+  left:60%;
   z-index:150;
   width:35px;
   height:35px;
@@ -36,7 +36,7 @@
  .share_button{
   background:url(img/share.png) no-repeat;
   position:absolute;
-  left:85%;
+  left:90%;
   top:10%;
   z-index:150;
   width:35px;
@@ -108,7 +108,7 @@
  </style>
 <title>Capture Photo</title>
 
- <script type="text/javascript" charset="utf-8" src="cordova.js"></script>
+ <script type="text/javascript" charset="utf-8" src="cordova.js"></script> 
 <script type="text/javascript" charset="utf-8">
 
 var pictureSource;   // picture source
@@ -213,26 +213,49 @@ function mySavingFunction(canvas) {
     );
 }
 
+function sharetoapps(){
+
+  // this is the complete list of currently supported params you can pass to the plugin (all optional)
+var options = {
+  message: 'share this', // not supported on some apps (Facebook, Instagram)
+  subject: 'Onthego moments', // fi. for email
+  files: [canvas], // an array of filenames either locally or remotely
+  url: '',
+  chooserTitle: 'Pick an app' // Android only, you can override the default share sheet title
+}
+
+var onSuccess = function(result) {
+  console.log("Share completed? " + result.completed); // On Android apps mostly return false even while it's true
+  console.log("Shared to app: " + result.app); // On Android result.app is currently empty. On iOS it's empty when sharing is cancelled (result.completed=false)
+}
+
+var onError = function(msg) {
+  console.log("Sharing failed with message: " + msg);
+}
+
+window.plugins.socialsharing.shareWithOptions(options, onSuccess, onError);
+}
+
 
 </script>
- </head>
+ </head style="overflow:hidden">
   <body >
   <div class="header_bar">
     <img src="img/log.png" style="float:left">
     <a id="download" class="save_button" ></a>
-    <a id="" class="share_button" ></a>
+    <a id="sharer" class="share_button" ></a>
   </div>
 <!-- <button onclick="capturePhoto();">Capture Photo</button> <br> -->
 
 <!-- <button onclick="getPhoto(pictureSource.PHOTOLIBRARY);">From Photo Library</button><br> -->
- <button onclick="getPhoto(pictureSource.SAVEDPHOTOALBUM);" style="margin-top:50%;position:absolute;">From Photo Album</button><br> 
-<img id="mainframe" src="img/bg.png" style="width:100%;height:auto;position:absolute;display:block;left:-4px">
-<img  style="display:none;width:90%;height:90%;position:absolute;top:8px;z-index:-1; " id="smallImage" src="" />
+ <!-- <button onclick="getPhoto(pictureSource.SAVEDPHOTOALBUM);" style="margin-top:50%;position:absolute;">From Photo Album</button><br>  -->
+<img id="mainframe" src="img/bg.png" style="width:100%;height:auto;position:absolute;display:block;left:-4px;top:5%">
+<img  style="display:none;width:92%;height:100%;position:absolute;top:8px;z-index:-1;left:5px; " id="smallImage" src="" />
 
 
-<canvas id="canvas" width="360" height="555" >
+<canvas id="canvas" width="350" height="555" >
 </canvas>
-<p style="margin-top:50%;position:relative;text-align:center;z-index:-5">Your Picture will<br> be inserted here</p>
+<p style="margin-top:50%;position:absolute;text-align:center;z-index:-5;left:40%">Your Picture will<br> be inserted here</p>
 <!-- <img style="display:none;width:60px;height:60px;" id="smallImage" src="" /> -->
 <img style="display:none;" id="largeImage" src="" />
 
@@ -261,13 +284,19 @@ var bamilo = document.getElementById('mainframe');
 // Trigger photo take
 document.getElementById("download").addEventListener("click", function() {
    /* context.drawImage(smallImage, 0, 0, 720, 1024);*/
-    context.drawImage(smallImage, 0, 0, 360, 555 );
+    context.drawImage(smallImage, 0, 0, 350, 555 );
    // context.globalAlpha = 0.5;
        /* context.drawImage(bamilo, 0, 0, 720, 680);*/
         context.drawImage(bamilo, 0, 0, 380, 555 );
-        mySavingFunction()
+        mySavingFunction();
+
+
 
 });
+
+
+
+
 
 
 
