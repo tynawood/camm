@@ -2,6 +2,46 @@
 <html>
  <head>
  <style type="text/css">
+ .header_bar{
+  width:100%;
+  height:60px;
+  background:#fff;
+  box-shadow:0 0 10px rgba(0,0,0,0.6);
+  position:fixed;
+  top:0;
+  z-index:100;
+  left:-0.4px;
+ }
+
+ .footer_bar{
+  width:100%;
+  height:50px;
+  background:#fff;
+  box-shadow:0 0 10px rgba(0,0,0,0.6);
+  position:fixed;
+  bottom:0;
+  z-index:100;
+  left:-0.4px;
+ }
+
+ .save_button{
+  background:url(img/download-arrow.png) no-repeat;
+  position:relative;
+  left:80%;
+  z-index:150;
+  width:35px;
+  height:35px;
+ }
+
+ .share_button{
+  background:url(img/share.png) no-repeat;
+  position:absolute;
+  left:90%;
+  top:10%;
+  z-index:150;
+  width:35px;
+  height:35px;
+ }
 
  #smallImage{
 
@@ -51,11 +91,14 @@
 }
 .batty_button{
     background:url(img/logo.png) no-repeat;
-    width:140px;
-    height:145px;
+    width:80px;
+    height:80px;
     border:none;
     cursor: pointer;
     outline: none;
+    position:relative;
+    left:40%;
+    top:-65%;
 
 
 }
@@ -65,7 +108,7 @@
  </style>
 <title>Capture Photo</title>
 
-<script type="text/javascript" charset="utf-8" src="cordova.js"></script>
+ <script type="text/javascript" charset="utf-8" src="cordova.js"></script> 
 <script type="text/javascript" charset="utf-8">
 
 var pictureSource;   // picture source
@@ -174,11 +217,16 @@ function mySavingFunction(canvas) {
 </script>
  </head>
   <body>
+  <div class="header_bar">
+    logo
+    <a id="download" class="save_button" ></a>
+    <a id="" class="share_button" ></a>
+  </div>
 <!-- <button onclick="capturePhoto();">Capture Photo</button> <br> -->
-<button class="batty_button" onclick="capturePhotoEdit();"></button> <br>
+
 <!-- <button onclick="getPhoto(pictureSource.PHOTOLIBRARY);">From Photo Library</button><br> -->
-<!-- <button onclick="getPhoto(pictureSource.SAVEDPHOTOALBUM);">From Photo Album</button><br> -->
-<img id="mainframe" src="img/bg.png" style="width:100%;height:100%;position:absolute;display:block;">
+ <button onclick="getPhoto(pictureSource.SAVEDPHOTOALBUM);">From Photo Album</button><br> 
+<img id="mainframe" src="img/bg.png" style="width:100%;height:auto;position:absolute;display:block;left:-4px">
 <img  style="display:none;width:100%;height:100%;position:absolute;top:8px;z-index:-1; " id="smallImage" src="" />
 
 
@@ -195,7 +243,12 @@ function mySavingFunction(canvas) {
 
 
 
-<a id="download" >Download as image</a>
+
+
+
+
+
+<div class="footer_bar"><button class="batty_button" onclick="capturePhotoEdit();"></button> </div>
 
 
 <script type="text/javascript">
