@@ -26,7 +26,7 @@
 
  .save_button{
   background:url(img/download-arrow.png) no-repeat;
-  position:relative;
+  position:absolute;
   left:60%;
   z-index:150;
   width:35px;
@@ -178,7 +178,7 @@ function capturePhoto() {
 //
 function capturePhotoEdit() {
   // Take picture using device camera, allow edit, and retrieve image as base64-encoded string  
-  navigator.camera.getPicture(onPhotoDataSuccess, onFail, { quality: 20, allowEdit: true,correctOrientation:true,
+  navigator.camera.getPicture(onPhotoDataSuccess, onFail, { quality: 20, allowEdit: true,
     destinationType: destinationType.DATA_URL });
 }
 
@@ -288,7 +288,7 @@ document.getElementById("download").addEventListener("click", function() {
    // context.globalAlpha = 0.5;
        /* context.drawImage(bamilo, 0, 0, 720, 680);*/
         context.drawImage(bamilo, 0, 0, 380, 555 );
-        mySavingFunction()
+        mySavingFunction();
 
 
 
