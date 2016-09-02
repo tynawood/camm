@@ -13,12 +13,10 @@
     </description>
 
     <author href="http://phonegap.com" email="support@phonegap.com">
-  Inappshub
+        PhoneGap Team
     </author>
 
-    <preference name="phonegap-version" value="cli-6.1.0" /> 
-    <preference name="orientation" value="portrait" />
-   <!--      <content src="index.html" /> -->
+    <preference name="phonegap-version" value="cli-6.1.0" />
 <icon src="icon.png" />
 <gap:plugin name="org.apache.cordova.camera" />
 <plugin name="org.devgeeks.canvas2imageplugin" spec="0.6.0" source="pgb" />
