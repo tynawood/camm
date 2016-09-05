@@ -20,6 +20,7 @@
 <icon src="icon.png" />
 <gap:plugin name="org.apache.cordova.camera" />
 <plugin name="org.devgeeks.canvas2imageplugin" spec="0.6.0" source="pgb" />
+  <gap:plugin name="cordova-plugin-x-socialsharing" source="npm" />
 <plugin name="cordova-plugin-whitelist" source="npm" spec="1.1.0" />
 <allow-navigation href="*" />
 <allow-intent href="*" />
