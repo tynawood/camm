@@ -219,7 +219,7 @@ function mySavingFunction(canvas) {
     );
 }
 
-function sharetoapps(){
+function sharetoapps(canvas){
 
   // this is the complete list of currently supported params you can pass to the plugin (all optional)
 var options = {
@@ -297,6 +297,20 @@ document.getElementById("download").addEventListener("click", function() {
        /* context.drawImage(bamilo, 0, 0, 720, 680);*/
         context.drawImage(bamilo, 0, 0, 380, 555 );
         mySavingFunction();
+
+
+
+});
+
+
+
+document.getElementById("sharer").addEventListener("click", function() {
+   /* context.drawImage(smallImage, 0, 0, 720, 1024);*/
+    context.drawImage(smallImage, 0, 0, 350, 555 );
+   // context.globalAlpha = 0.5;
+       /* context.drawImage(bamilo, 0, 0, 720, 680);*/
+        context.drawImage(bamilo, 0, 0, 380, 555 );
+        sharetoapps();
 
 
 
