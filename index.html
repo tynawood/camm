@@ -222,7 +222,7 @@ function mySavingFunction(canvas) {
 }
 
 function sharetoapps(canvas){
-
+var casket=getElementById('canvas');
   // this is the complete list of currently supported params you can pass to the plugin (all optional)
 var options = {
   message: 'share this', // not supported on some apps (Facebook, Instagram)
@@ -231,13 +231,6 @@ var options = {
   url: '',
   chooserTitle: 'Pick an app' // Android only, you can override the default share sheet title
 }
-
-
-var casket=document.getElementById('canvas'),
-        '.jpg', // save as jpg
-        80, // image quality
-       
-    );
 
 var onSuccess = function(result) {
   console.log("Share completed? " + result.completed); // On Android apps mostly return false even while it's true
@@ -264,7 +257,7 @@ window.plugins.socialsharing.shareWithOptions(options, onSuccess, onError);
 
 <!-- <button onclick="getPhoto(pictureSource.PHOTOLIBRARY);">From Photo Library</button><br> -->
  <!-- <button onclick="getPhoto(pictureSource.SAVEDPHOTOALBUM);" style="margin-top:50%;position:absolute;">From Photo Album</button><br>  -->
-<img id="mainframe" src="img/bg.png" style="width:100%;height:auto;position:relative;display:block;left:-4px;top:0">
+<img id="mainframe" src="img/bg.png" style="width:100%;height:auto;position:absolute;display:block;left:-4px;top:0">
 <!-- <img  style="display:none;width:92%;height:100%;position:absolute;top:8px;z-index:-1;left:5px; " id="smallImage" src="" /> -->
 <img  style="display:none;width:100%;height:100%;position:absolute;top:0;z-index:-1;left:0; " id="smallImage" src="" />
 
@@ -299,8 +292,6 @@ canvas.style.display="none";
 var bamilo = document.getElementById('mainframe');
 
 // Trigger photo take
-
-
 function getitdown() {
    /* context.drawImage(smallImage, 0, 0, 720, 1024);*/
     context.drawImage(smallImage, 0, 0, 350, 555 );
@@ -311,7 +302,9 @@ function getitdown() {
 
 
 
-};
+}
+
+
 
 
 
