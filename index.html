@@ -34,6 +34,7 @@
   float:left;
 font-weight:bold;
 margin-left:2%;
+cursor: pointer;
  }
 
  .share_button{
@@ -47,6 +48,7 @@ margin-right: 5%;
   height:35px;
   float:right;
   font-weight:bold;
+  cursor: pointer;
  }
 
  #smallImage{
@@ -225,10 +227,17 @@ function sharetoapps(canvas){
 var options = {
   message: 'share this', // not supported on some apps (Facebook, Instagram)
   subject: 'Onthego moments', // fi. for email
-  files: [canvas], // an array of filenames either locally or remotely
+  files: [casket], // an array of filenames either locally or remotely
   url: '',
   chooserTitle: 'Pick an app' // Android only, you can override the default share sheet title
 }
+
+
+var casket=document.getElementById('canvas'),
+        '.jpg', // save as jpg
+        80, // image quality
+       
+    );
 
 var onSuccess = function(result) {
   console.log("Share completed? " + result.completed); // On Android apps mostly return false even while it's true
