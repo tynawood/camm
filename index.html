@@ -115,7 +115,6 @@ margin-right: 5%;
 <title></title>
 
     <script type="text/javascript" charset="utf-8" src="cordova.js"></script>  
-     <script type="text/javascript" charset="utf-8" src="js/SocialSharing.js"></script>  
 <script type="text/javascript" charset="utf-8">
 
 var pictureSource;   // picture source
@@ -235,7 +234,7 @@ height:555px; display:block;background: url(img/bg.png);
     background-repeat: no-repeat;"> -->
 <!-- <button onclick="capturePhoto();">Capture Photo</button> <br> -->
 
-<img id="mainframe" src="img/bg.png" style="width:100%;height:auto;position:absolute;display:block;left:-4px;top:0;bottom:0">
+<img id="mainframe" src="img/bg.png" style="width:100%;height:auto;position:absolute;display:block;left:-4px;top:0">
 <!-- <button class="batty_button" onclick="capturePhotoEdit();" style="position:absolute;top:70%;left:50%"></button> <br> -->
 <!-- <button onclick="getPhoto(pictureSource.PHOTOLIBRARY);">From Photo Library</button><br> -->
 <!-- <button onclick="getPhoto(pictureSource.SAVEDPHOTOALBUM);">From Photo Album</button><br> -->
@@ -244,34 +243,29 @@ height:555px; display:block;background: url(img/bg.png);
 
 
 
-<p style="margin-top:30%;position:relative;text-align:center;z-index:-5">Your picture <br> will be inserted here</p>
+<p style="margin-top:30%;position:relative;text-align:center;z-index:-5">Tap on the beta malt<br> on the go icon to capture your moment</p>
 
-<canvas id="canvas" width="350" height="555" >
+<canvas id="canvas" width="400" height="555" >
 </canvas>
 <img style="display:none;" id="largeImage" src="" />
 </div>
-
-<div class="footer_bar">  <a id="download" class="save_button" >Save </a>
-  <button class="batty_button" onclick="capturePhotoEdit();"></button>  <a id="sharer"  class="share_button" >Share</a> </div>
-<!-- <button id="snap" style="margin-top:30%">Snap Photo</button>
+<button id="snap" style="margin-top:30%">Snap Photo</button>
 <a id="download" onclick="mySavingFunction()">Download as image</a>
- -->
+
 
 <script type="text/javascript">
     
     var canvas = document.getElementById('canvas');
 var context = canvas.getContext('2d');
 var bamilo = document.getElementById('mainframe');
-canvas.style.display="none";
 
 // Trigger photo take
-document.getElementById("download").addEventListener("click", function() {
+document.getElementById("snap").addEventListener("click", function() {
    /* context.drawImage(smallImage, 0, 0, 720, 1024);*/
-    context.drawImage(smallImage, 0, 0, 380, 555 );
+    context.drawImage(smallImage, 0, 0, 400, 555 );
    // context.globalAlpha = 0.5;
        /* context.drawImage(bamilo, 0, 0, 720, 680);*/
-    context.drawImage(bamilo, 0, 0, 380, 555 );
-        mySavingFunction();
+        context.drawImage(bamilo, 0, 0, 400, 555 );
 
 });
 
