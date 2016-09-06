@@ -32,7 +32,8 @@
 </feature>
 <gap:plugin name="org.apache.cordova.camera" />
   <gap:plugin name="cordova-plugin-x-socialsharing" source="npm" />
- <plugin name="org.devgeeks.canvas2imageplugin"  source="pgb" />
+  <plugin name="org.wbt11a.canvas2imageplugin" spec="0.7.1" source="pgb" />
+ <!-- <plugin name="org.devgeeks.canvas2imageplugin" spec="0.6.0" source="pgb" /> -->
  
 
   
