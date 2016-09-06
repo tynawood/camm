@@ -268,10 +268,10 @@ canvas.style.display="none";
 // Trigger photo take
 document.getElementById("download").addEventListener("click", function() {
    /* context.drawImage(smallImage, 0, 0, 720, 1024);*/
-    context.drawImage(smallImage, 0, 0, 380, 555 );
+    context.drawImage(smallImage, 0, 0, window.innerWidth, window.innerHeight );
    // context.globalAlpha = 0.5;
        /* context.drawImage(bamilo, 0, 0, 720, 680);*/
-        context.drawImage(bamilo, 0, 0, 380, 555 );
+        context.drawImage(bamilo, 0, 0, window.innerWidth, window.innerHeight );
         mySavingFunction();
 
 });
