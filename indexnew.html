@@ -1,8 +1,53 @@
 <!DOCTYPE html>
 <html>
  <head>
-
  <style type="text/css">
+ .header_bar{
+  width:100%;
+  height:60px;
+  background:#fff;
+  box-shadow:0 0 10px rgba(0,0,0,0.8);
+  position:fixed;
+  top:0;
+  z-index:100;
+  left:-0.4px;
+ }
+
+ .footer_bar{
+  width:100%;
+  height:50px;
+  background:#fff;
+  box-shadow:0 0 10px rgba(0,0,0,0.8);
+  position:fixed;
+  bottom:0;
+  z-index:100;
+  left:-0.4px;
+ }
+
+ .save_button{
+ /* background:url(img/download-arrow.png) no-repeat;*/
+  /*position:absolute;*/
+  /*left:60%;*/
+  z-index:150;
+  width:35px;
+  height:35px;
+  float:left;
+font-weight:bold;
+margin-left:2%;
+ }
+
+ .share_button{
+  /*background:url(img/share.png) no-repeat;*/
+  /*position:absolute;*/
+  /*left:90%;*/
+margin-top: 2%;
+margin-right: 5%;
+  z-index:150;
+  width:35px;
+  height:35px;
+  float:right;
+  font-weight:bold;
+ }
 
  #smallImage{
 
@@ -52,11 +97,14 @@
 }
 .batty_button{
     background:url(img/logo.png) no-repeat;
-    width:140px;
-    height:145px;
+    width:80px;
+    height:80px;
     border:none;
     cursor: pointer;
     outline: none;
+    position:relative;
+    left:30%;
+    top:-65%;
 
 
 }
@@ -64,9 +112,9 @@
 
 
  </style>
-<title></title>
+<title>Capture Photo</title>
 
-    <script type="text/javascript" charset="utf-8" src="cordova.js"></script>  
+<script type="text/javascript" charset="utf-8" src="cordova.js"></script>
 <script type="text/javascript" charset="utf-8">
 
 var pictureSource;   // picture source
@@ -79,15 +127,10 @@ document.addEventListener("deviceready",onDeviceReady,false);
 
 // Cordova is ready to be used!
 //
-
-
-
-
 function onDeviceReady() {
     pictureSource=navigator.camera.PictureSourceType;
     destinationType=navigator.camera.DestinationType;
-   canvas2ImagePlugin = window.plugins.canvas2ImagePlugin;
-
+     canvas2ImagePlugin = window.plugins.canvas2ImagePlugin;
 }
 
 // Called when a photo is successfully retrieved
@@ -142,7 +185,7 @@ function capturePhoto() {
 //
 function capturePhotoEdit() {
   // Take picture using device camera, allow edit, and retrieve image as base64-encoded string  
-  navigator.camera.getPicture(onPhotoDataSuccess, onFail, { quality: 50, allowEdit: true,
+  navigator.camera.getPicture(onPhotoDataSuccess, onFail, { quality: 20, allowEdit: true,
     destinationType: destinationType.DATA_URL });
 }
 
@@ -161,7 +204,7 @@ function onFail(message) {
   alert('Failed because: ' + message);
 }
 
-// where myCanvasId == 'myCanvas' (the id of the canvas above)
+
 function mySavingFunction(canvas) {
     canvas2ImagePlugin.saveImageDataToLibrary(
         function(msg){
@@ -173,60 +216,55 @@ function mySavingFunction(canvas) {
        document.getElementById('canvas'),
         '.jpg', // save as jpg
         80, // image quality
-        'cunvaspluginfolder' //folder name
+        'onthego' //folder name
     );
 }
 
+
 </script>
  </head>
-  <body >
-  <!-- <div  style="max-width:100%;
-height:555px; display:block;background: url(img/bg.png);
-    background-size: 100% 100%;
-    background-repeat: no-repeat;"> -->
-<!-- <button onclick="capturePhoto();">Capture Photo</button> <br> -->
-
-<img id="mainframe" src="img/bg.png" style="width:100%;height:100%;position:absolute;display:block;">
-<button class="batty_button" onclick="capturePhotoEdit();" style="position:absolute;top:70%;left:50%"></button> <br>
-<!-- <button onclick="getPhoto(pictureSource.PHOTOLIBRARY);">From Photo Library</button><br> -->
-<!-- <button onclick="getPhoto(pictureSource.SAVEDPHOTOALBUM);">From Photo Album</button><br> -->
-<!-- <img  style="display:none;width:100%;height:80%;" id="smallImage" src="" /> -->
-<img  style="display:none;width:96%;height:100%;position:absolute;top:8px;z-index:-1; " id="smallImage" src="" />
-
-
-
-<p style="margin-top:30%;position:relative;text-align:center;z-index:-5">Tap on the beta malt<br> on the go icon to capture your moment</p>
-
-<canvas id="canvas" width="400" height="555" >
-</canvas>
+  <body>
+<button onclick="capturePhoto();">Capture Photo</button> <br>
+<button onclick="capturePhotoEdit();">Capture Editable Photo</button> <br>
+<button onclick="getPhoto(pictureSource.PHOTOLIBRARY);">From Photo Library</button><br>
+<button onclick="getPhoto(pictureSource.SAVEDPHOTOALBUM);">From Photo Album</button><br>
+<img style="display:none;width:60px;height:60px;" id="smallImage" src="" />
 <img style="display:none;" id="largeImage" src="" />
-</div>
-<button id="snap" style="margin-top:30%">Snap Photo</button>
-<a id="download" onclick="mySavingFunction()">Download as image</a>
 
 
-<script type="text/javascript">
-    
+<a id="download"  >Save </a>
+ </body>
+
+ <script type="text/javascript">
+   
     var canvas = document.getElementById('canvas');
 var context = canvas.getContext('2d');
-var bamilo = document.getElementById('mainframe');
+//canvas.style.display="none";
+//var bamilo = document.getElementById('mainframe');
 
 // Trigger photo take
-document.getElementById("snap").addEventListener("click", function() {
+document.getElementById("download").addEventListener("click", function() {
    /* context.drawImage(smallImage, 0, 0, 720, 1024);*/
-    context.drawImage(smallImage, 0, 0, 400, 555 );
+    context.drawImage(smallImage, 0, 0, 350, 555 );
    // context.globalAlpha = 0.5;
        /* context.drawImage(bamilo, 0, 0, 720, 680);*/
-        context.drawImage(bamilo, 0, 0, 400, 555 );
+       // context.drawImage(bamilo, 0, 0, 380, 555 );
+       // mySavingFunction();
+
+
 
 });
 
 
 
-function downloadCanvas(link, canvasId, filename) {
+
+
+
+
+/*function downloadCanvas(link, canvasId, filename) {
     link.href = document.getElementById(canvasId).toDataURL();
     link.download = filename;
-}
+}*/
 
 /** 
  * The event handler for the link's onclick event. We give THIS as a
@@ -240,6 +278,5 @@ function downloadCanvas(link, canvasId, filename) {
  * Draw something to canvas
  */
 doCanvas();
-</script>
- </body>
+ </script>
 </html>
