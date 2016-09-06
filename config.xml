@@ -31,7 +31,7 @@
   <param name="wp-package" value="SocialSharing"/>
 </feature>
 <gap:plugin name="org.apache.cordova.camera" />
-  <gap:plugin name="cordova-plugin-x-socialsharing" source="npm" />
+  <gap:plugin name="cordova-plugin-x-socialsharing" source="pgb" />
  <plugin name="org.devgeeks.canvas2imageplugin" spec="0.6.0" source="pgb" />
  
 
