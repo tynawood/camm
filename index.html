@@ -234,5 +234,51 @@ function mySavingFunction(canvas) {
 <div class="footer_bar">  <a id="download" class="save_button" >Save </a>
   <button class="batty_button" onclick="capturePhotoEdit();"></button>  <a id="sharer" class="share_button" >Share</a> </div>
 
+
+
+<script type="text/javascript">
+    
+    var canvas = document.getElementById('canvas');
+var context = canvas.getContext('2d');
+canvas.style.display="none";
+var bamilo = document.getElementById('mainframe');
+
+// Trigger photo take
+document.getElementById("download").addEventListener("click", function() {
+   /* context.drawImage(smallImage, 0, 0, 720, 1024);*/
+    context.drawImage(smallImage, 0, 0, 350, 555 );
+   // context.globalAlpha = 0.5;
+       /* context.drawImage(bamilo, 0, 0, 720, 680);*/
+        context.drawImage(bamilo, 0, 0, 380, 555 );
+        mySavingFunction();
+
+
+
+});
+
+
+
+
+
+
+
+function downloadCanvas(link, canvasId, filename) {
+    link.href = document.getElementById(canvasId).toDataURL();
+    link.download = filename;
+}
+
+/** 
+ * The event handler for the link's onclick event. We give THIS as a
+ * parameter (=the link element), ID of the canvas and a filename.
+*/
+/*document.getElementById('download').addEventListener('click', function() {
+    downloadCanvas(this, 'canvas', 'test.png');
+}, false);
+*/
+/**
+ * Draw something to canvas
+ */
+doCanvas();
+</script>
  </body>
 </html>
