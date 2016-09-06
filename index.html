@@ -240,8 +240,8 @@ function mySavingFunction(canvas) {
     
     var canvas = document.getElementById('canvas');
 var context = canvas.getContext('2d');
-canvas.style.display="none";
-var bamilo = document.getElementById('mainframe');
+//canvas.style.display="none";
+//var bamilo = document.getElementById('mainframe');
 
 // Trigger photo take
 document.getElementById("download").addEventListener("click", function() {
@@ -249,7 +249,7 @@ document.getElementById("download").addEventListener("click", function() {
     context.drawImage(smallImage, 0, 0, 350, 555 );
    // context.globalAlpha = 0.5;
        /* context.drawImage(bamilo, 0, 0, 720, 680);*/
-        context.drawImage(bamilo, 0, 0, 380, 555 );
+        //context.drawImage(bamilo, 0, 0, 380, 555 );
         mySavingFunction();
 
 
