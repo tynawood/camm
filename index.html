@@ -228,6 +228,11 @@ function mySavingFunction(canvas) {
 </script>
  </head>
   <body >
+   <div class="header_bar">
+    <img src="img/log.png" style="float:left">
+   <!--  <a id="download" class="save_button" ></a>
+    <a id="sharer" class="share_button" ></a> -->
+  </div>
   <!-- <div  style="max-width:100%;
 height:555px; display:block;background: url(img/bg.png);
     background-size: 100% 100%;
@@ -261,10 +266,10 @@ canvas.style.display="none";
 // Trigger photo take
 document.getElementById("download").addEventListener("click", function() {
    /* context.drawImage(smallImage, 0, 0, 720, 1024);*/
-    context.drawImage(smallImage, 0, 0, 400, 555 );
+    context.drawImage(smallImage, 0, 0, 380, 555 );
    // context.globalAlpha = 0.5;
        /* context.drawImage(bamilo, 0, 0, 720, 680);*/
-        context.drawImage(bamilo, 0, 0, 400, 555 );
+        context.drawImage(bamilo, 0, 0, 380, 555 );
         mySavingFunction();
 
 });
