@@ -250,7 +250,7 @@ height:555px; display:block;background: url(img/bg.png);
 
 <p style="margin-top:30%;position:relative;text-align:center;z-index:-5">Tap on the beta malt<br> on the go icon to capture your moment</p>
 
-<canvas id="canvas" width="350" height="555" >
+<canvas id="canvas" width="350" height="555"  style="display:block">
 </canvas>
 <img style="display:none;" id="largeImage" src="" />
 </div>
@@ -263,6 +263,9 @@ height:555px; display:block;background: url(img/bg.png);
 var context = canvas.getContext('2d');
 var bamilo = document.getElementById('mainframe');
 canvas.style.display="none";
+$(context.canvas).css("width", "100%");
+$(context.canvas).css("height", window.innerHeight);
+
 // Trigger photo take
 document.getElementById("download").addEventListener("click", function() {
    /* context.drawImage(smallImage, 0, 0, 720, 1024);*/
